@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Agletras - Static Company Portfolio Website
 
-## Getting Started
+Agletras is a research-driven technology company focused on Open-Source Intelligence, intelligent automation, artificial intelligence research, cybersecurity, and information analysis.
 
-First, run the development server:
+This repository contains the static frontend source code for the Agletras corporate website.
+
+## Features
+
+- **Next.js 15+ App Router**: High-performance static site generation.
+- **Tailwind CSS v4**: Modern, responsive, utility-first styling.
+- **Framer Motion**: Subtle, sophisticated animations.
+- **Static Export**: Generates pure HTML/CSS/JS without needing a Node.js server.
+- **SEO & Accessibility**: Complete metadata, schema.org JSON-LD, robots.txt, sitemap.xml, and WCAG-friendly contrast.
+- **Premium Design**: Dark technology aesthetic with subtle Banyan tree / network visualizations.
+
+## Local Development
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Open browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## Build & Export
+
+To create a production static build:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The output will be placed in the `out/` directory, which contains purely static files ready to be hosted anywhere.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment to Cloudflare Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is configured for static export (`output: 'export'` in `next.config.ts`), making it incredibly fast and easy to deploy to Cloudflare Pages, GitHub Pages, Vercel, or Netlify.
 
-## Learn More
+**Steps for Cloudflare Pages:**
 
-To learn more about Next.js, take a look at the following resources:
+1. Push this code to a GitHub/GitLab/Bitbucket repository.
+2. Log in to your Cloudflare Dashboard and navigate to **Workers & Pages**.
+3. Click **Create application** -> **Pages** -> **Connect to Git**.
+4. Select your repository.
+5. In the Build settings:
+   - **Framework preset**: Next.js (Static HTML Export)
+   - **Build command**: `npm run build`
+   - **Build output directory**: `out`
+6. Click **Save and Deploy**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Cloudflare will automatically build and distribute your site globally across their edge network.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture Notes
 
-## Deploy on Vercel
+- **No backend**: The site is 100% static to ensure maximum security and performance.
+- **Lucide React**: Used for scalable, clean SVG iconography.
+- **Motion**: Uses Framer Motion for scroll-triggered layout animations. Ensure `prefers-reduced-motion` is respected by utilizing Framer Motion's accessibility features implicitly or using standard transitions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Copyright © 2026 Agletras. All rights reserved.
